@@ -1,0 +1,27 @@
+{
+  "name": "devops-proyecto-global",
+  "version": "1.0.0",
+  "description": "Final Project for the Devops' course from the University of Palermo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "node --watch-path=./src src/index.js",
+    "start:prod": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/August-Arana/Devops-Proyecto-Global.git"
+  },
+  "author": "Ivan Berengeno & Agustin Arana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/August-Arana/Devops-Proyecto-Global/issues"
+  },
+  "homepage": "https://github.com/August-Arana/Devops-Proyecto-Global#readme",
+  "dependencies": {
+    "@koa/bodyparser": "^6.0.0",
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^14.0.0",
+    "koa": "^3.0.1"
+  }
+}
