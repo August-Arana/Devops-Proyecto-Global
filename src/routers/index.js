@@ -1,3 +1,3 @@
-import endpoint1 from "./endpoint1.js"
+import patients from "./patients.js"
 
-export default [endpoint1]
+export default [patients]
