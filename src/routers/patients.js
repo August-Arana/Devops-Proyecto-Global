@@ -46,10 +46,10 @@ router.post("/", (ctx) => {
 });
 
 router.put("/:id", (ctx) => {
-  const id = parseint(ctx.params.id);
+  const id = parseInt(ctx.params.id);
   const { nombre, apellido, edad, dni, causaIngreso } = ctx.request.body;
 
-  const index = base.findindex((p) => p.id === id);
+  const index = base.findIndex((p) => p.id === id);
 
   if (index === -1) {
     ctx.status = 404;
@@ -71,9 +71,9 @@ router.put("/:id", (ctx) => {
 });
 
 router.delete("/:id", (ctx) => {
-  const id = parseint(ctx.params.id);
+  const id = parseInt(ctx.params.id);
 
-  const index = base.findindex((p) => p.id === id);
+  const index = base.findIndex((p) => p.id === id);
 
   if (index === -1) {
     ctx.status = 404;
