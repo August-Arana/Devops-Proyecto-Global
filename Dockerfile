@@ -1,7 +1,7 @@
 ################################################################################
 # Base dependencies
 ################################################################################
-FROM node:20 AS dependencies
+FROM node:20-alpine AS dependencies
 
 RUN mkdir -p /opt/devops-project
 
@@ -22,9 +22,9 @@ FROM dependencies AS development
 
 ENV NODE_ENV=development
 
-CMD ["npm", "run", "start:dev"]
-
 RUN npm install --only development --loglevel verbose
+
+CMD ["npm", "run", "start:dev"]
 
 ################################################################################
 # Productive Enviroment
