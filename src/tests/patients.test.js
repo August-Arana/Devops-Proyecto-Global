@@ -72,3 +72,7 @@ describe("API de Pacientes", () => {
     expect(res.body.error).toMatch(/faltan/i);
   });
 });
+
+afterAll(async () => {
+  await Sentry.close(2000);
+});
