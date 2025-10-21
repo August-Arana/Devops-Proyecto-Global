@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/node";
 import request from "supertest";
 import app from "../app.js";
 
