@@ -25,6 +25,8 @@ jobs:
         run: npm ci
 
       - name: Run unit tests
+        env:
+          SENTRY_DSN: ${{secrets.SENTRY_DSN}}
         run: npm test
 
       - name: Run linter
