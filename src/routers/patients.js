@@ -1,12 +1,39 @@
 import Router from "@koa/router";
+import * as Sentry from "@sentry/node";
+
+
 const router = new Router({
   prefix: "/patients",
 });
 
-let base = [];
-let idCounter = 1;
+let base = [{
+    id: 1,
+    nombre: "Carlos",
+    apellido: "Sanchez",
+    edad: 45,
+    dni: "28.123.456",
+    causaIngreso: "Control de rutina por hipertensión",
+  },
+  {
+    id: 2,
+    nombre: "Ana",
+    apellido: "Gomez",
+    edad: 33,
+    dni: "35.987.654",
+    causaIngreso: "Consulta por cuadro febril",
+  },
+  {
+    id: 3,
+    nombre: "Luis",
+    apellido: "Martinez",
+    edad: 62,
+    dni: "18.456.789",
+    causaIngreso: "Seguimiento post-operatorio",
+  }];
+let idCounter = 4;
 
 router.get("/", (ctx) => {
+  Sentry.logger.info('User asked for all patients data', { action: 'list_patients' })
   ctx.body = base;
 });
 
