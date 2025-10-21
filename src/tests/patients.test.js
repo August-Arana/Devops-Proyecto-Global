@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/node";
 import request from "supertest";
 import app from "../app.js";
 
@@ -71,4 +72,8 @@ describe("API de Pacientes", () => {
     expect(res.status).toBe(404);
     expect(res.body.error).toMatch(/faltan/i);
   });
+});
+
+afterAll(async () => {
+  await Sentry.close(2000);
 });

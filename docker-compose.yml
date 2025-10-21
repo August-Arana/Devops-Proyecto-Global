@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: devops_project_dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development # Usa el stage de desarrollo
+    ports:
+      - "3000:3000" # Mapea puerto: <host>:<contenedor>
+    volumes:
+      # Monta el código fuente local dentro del contenedor.
+      # Cualquier cambio que hagas en tu máquina se reflejará al instante.
+      - .:/opt/devops-project
+      # Excluye node_modules para usar los que están dentro del contenedor.
+      - /opt/devops-project/node_modules
+    env_file:
+      # Carga las variables de entorno desde el archivo .env
+      - ./.env

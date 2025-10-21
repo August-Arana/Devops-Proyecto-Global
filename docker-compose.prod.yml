@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: devops_project_prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production # Usa el stage de producción
+    ports:
+      # En producción, podrías mapear al puerto 80 del host
+      - "80:3000"
+    environment:
+      # En producción, las variables NUNCA se leen de un archivo .env.
+      # Se inyectan directamente. Esto lo harías desde tu proveedor cloud o un gestor de secretos.
+      - SENTRY_DSN=${SENTRY_DSN}
+      - NODE_ENV=production
+    restart: unless-stopped # Reinicia el contenedor si se cae

@@ -7,4 +7,6 @@ console.log("Initializing Sentry with DSN:", process.env.SENTRY_DSN);
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
   sendDefaultPii: true,
+  integrations: [Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] })],
+  enableLogs: true,
 });
