@@ -37,6 +37,15 @@ describe("API de Pacientes", () => {
     expect(res.body.nombre).toBe("Agustin");
   });
 
+    test("GET /patients/:id → devuelve un paciente específico creado anteriormente", async () => {
+    const res = await request(app.callback()).get(`/patients/${1}`);
+
+    expect(res.status).toBe(200);
+    expect(res.body.id).toBe(1);
+    expect(res.body.nombre).toBe("Carlos");
+    expect(res.body.dni).toBe("28.123.456");
+  });
+
   test("PUT /patients/:id → actualiza un paciente existente", async () => {
     const res = await request(app.callback())
       .put(`/patients/${createdId}`)
