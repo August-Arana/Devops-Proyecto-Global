@@ -58,7 +58,9 @@ jobs:
           file: ./Dockerfile
           target: production
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ steps.meta.outputs.tags }}
+            august723/api-guardia-medica:latest
           labels: ${{ steps.meta.outputs.labels }}
 
   deploy:
